@@ -41,8 +41,7 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Amount",
-                              text: $checkAmount)
+                    TextField("Amount", text: $checkAmount)
                         .keyboardType(.decimalPad)
                     
                     /*
@@ -55,8 +54,7 @@ struct ContentView: View {
                     }
                     */
                     
-                    TextField("Number of people",
-                              text: $numberOfPeople)
+                    TextField("Number of people", text: $numberOfPeople)
                         .keyboardType(.decimalPad)
                 }
                 
@@ -74,6 +72,8 @@ struct ContentView: View {
                 Section(header: Text("Amount + Tip")) {
                     
                     Text("$\(totalIncludingTip, specifier: "%.2f")")
+                        .background(tipPercentages[tipPercentage] == 0
+                            ? Color.red : Color.clear)
                 }
                 
                 Section(header: Text("Amount per person")) {
